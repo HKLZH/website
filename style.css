@@ -1,16 +1,53 @@
-body
-{
-background-image: url("./image/hammer_sickle.jpg");
-background-size: cover;
-background-position:
-background-repeat: no-repeat;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #33ff33; /* 科幻绿 */
+    background-color: #000; /* 黑色背景 */
+    font-family: 'Courier New', monospace; /* 使用等宽字体模拟代码风格 */
 }
-.colorful-title
-{
-    font-size: 48px;
-    color: aqua;
-    font-family: 'Arial',sans-serif;
-    text-shadow: 2px 2px 4px #000000;
-    align-items: center;
-    text-align: center;
+.image-container {
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+
+}
+.shake {
+    animation: shake 0.5s infinite;
+}
+.static {
+    animation: none !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translate(0); }
+    25% { transform: translate(-1px, -1px); }
+    50% { transform: translate(1px, 1px); }
+    75% { transform: translate(-1px, 1px); }
+}
+
+/* 其他样式保持不变 */
+
+/* 新增一个不包含动画的类 */
+#console.static {
+    animation: none;
+}
+#console {
+    white-space: pre-wrap; /* 保留空白符和换行 */
+    padding: 20px;
+    animation: jitter 0.1s infinite; /* 应用跳动动画 */
+}
+
+/* 更新原有动画定义，确保只在非static类下应用 */
+#console:not(.static) {
+    animation: jitter 0.1s infinite;
+}
+
+@keyframes jitter {
+    0%, 100% { transform: translate(0); }
+    25% { transform: translate(-1px, -1px); }
+    50% { transform: translate(1px, 1px); }
+    75% { transform: translate(-1px, 1px); }
 }
