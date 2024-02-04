@@ -33,7 +33,7 @@ function typeWriter() {
 
     if (index >= text.length) {
         const image = document.createElement('img');
-        image.src = 'hammer_sickle.jpg';
+        image.src = 'hammer_sickle.webp';
         image.classList.add('image-container');
         target.appendChild(image);
     }
