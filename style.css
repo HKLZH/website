@@ -1,0 +1,16 @@
+body
+{
+background-image: url("./image/hammer_sickle.jpg");
+background-size: cover;
+background-position:
+background-repeat: no-repeat;
+}
+.colorful-title
+{
+    font-size: 48px;
+    color: aqua;
+    font-family: 'Arial',sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+    align-items: center;
+    text-align: center;
+}
