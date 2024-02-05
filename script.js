@@ -22,7 +22,7 @@ function typeWriter() {
     if (index < text.length) {
         target.innerHTML += text.charAt(index);
         index++;
-        setTimeout(typeWriter, 50); // 调整这里的延迟时间以改变打字速度
+        setTimeout(typeWriter, 50); // 打字速度 哈哈哈哈
     } else {
         
         target.classList.remove('static')
