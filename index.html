@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WarGod</title>
-    <link rel="stylesheet" href="style.css"> <!-- 确保引用正确的CSS文件 -->
+    <title>窝里giaogiao</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="console"></div>
-
+    <div>
+        <h2>明 文</h2>
+        <textarea id="top">我是铭文</textarea>
+        <h2>密 文</h2>
+        <div class="cp">
+            <button id="b3" onclick="copyText()">复 制</button>
+        </div>
+        
+        <textarea id="bottom"></textarea>
+        <div class="but"> 
+            <button id="b1" onclick="encrypt()">加 密</button>
+            <button id="b2" onclick="decrypt()">解 密</button>
+        </div>  
+       
+    </div>    
     <script src="script.js"></script>
-
 </body>
 </html>

@@ -1,42 +1,56 @@
-const target = document.getElementById('console');
-const text = `> 初始化...
-> 访问权限已授权...
-> 尝试接入代理服务器...
-> 连接成功...
-> 开始数据传输...
-> 数据传输完毕...
-> 最终程序启动中...
-> 网页渲染完毕...
-> 警告!警告！和网站建立的TCP被不明物体劫持！请勿相信任何信息！
-> Waring! waring! TCP of connect server was hacked that undefination！
-  Do'nt believe anything !
- 
-> Welcome to WarGod !!!
-`;
+function copyText(){
+    let text=document.querySelector("#bottom");
+    text.select();
+    document.execCommand("copy")
 
-let index = 0;
-let isShaking = false;
-
-function typeWriter() {
-    target.classList.add('static');
-    if (index < text.length) {
-        target.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeWriter, 50); // 打字速度 哈哈哈哈
-    } else {
-        
-        target.classList.remove('static')
-
-       
+}
+function charToChar(char)
+{
+    let codePonit=char.charCodeAt(0);
+    return codePonit.toString(2).padStart(16,'0')
+}
+function rep(char)
+{
+    return char.replace(/0/g,'傻').replace(/1/g,'比')
+}
+function unrep(char)
+{
+    return char.replace(/傻/g,'0').replace(/比/g,'1')
+}
+function encrypt()
+{
+    let pretext=document.querySelector("#top").value;
+    let disp=document.querySelector("#bottom")
+    let content=''
+    //console.log(pretext)
+    console.log("加密开始。。。");
+    for(let i =0;i<pretext.length;i++)
+    {
+        content+=rep((charToChar(pretext[i])));
     }
-
-
-    if (index >= text.length) {
-        const image = document.createElement('img');
-        image.src = 'hammer_sickle.webp';
-        image.classList.add('image-container');
-        target.appendChild(image);
+    disp.value=content;
+}   
+function decrypt()
+{   try{
+    let disp=document.querySelector("#top");
+    let subtext=document.querySelector("#bottom").value;        
+    console.log("解密开始。。。")
+    let content=''
+    let lis=unrep(subtext).match(/.{16}/g);
+    //console.log(lis);
+    for(let i=0;i<lis.length;i++)
+    {
+        str_codepoint=lis[i]
+       // console.log(str_codepoint)
+        codespoint=parseInt(str_codepoint,2);
+        //console.log(codespoint)
+        content+=String.fromCharCode(codespoint);
+        //console.log(content)
     }
+    disp.value=content 
+}catch{
+    alert("搞什么呢？老登，解不动了。自己算去吧")
+}
+   
 }
 
-typeWriter();
